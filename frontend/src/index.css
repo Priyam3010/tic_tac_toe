@@ -5,8 +5,8 @@
 
 :root {
   --bg-dark: #0a0a0c;
-  --neon-cyan: #0ff;
-  --neon-magenta: #f0f;
+  --neon-cyan: #22d3ee;
+  --neon-magenta: #e879f9;
   --grid-line: rgba(255, 255, 255, 0.1);
 }
 
