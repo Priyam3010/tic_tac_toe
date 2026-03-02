@@ -20,9 +20,23 @@ const TicTacToe = () => {
     [0, 4, 8], [2, 4, 6]
   ];
 
+  const checkWinner = (currentBoard) => {
+    for (let condition of winConditions) {
+      const [a, b, c] = condition;
+      if (currentBoard[a] && currentBoard[a] === currentBoard[b] && currentBoard[a] === currentBoard[c]) {
+        return { winner: currentBoard[a], line: condition };
+      }
+    }
+    if (currentBoard.every(cell => cell !== null)) {
+      return { winner: 'draw', line: null };
+    }
+    return null;
+  };
+
   useEffect(() => {
     // Initialize socket connection
-    socketRef.current = io('http://localhost:3001');
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+    socketRef.current = io(backendUrl);
 
     socketRef.current.on('playerJoined', ({ mark, board, currentPlayer }) => {
       setMyMark(mark);
@@ -60,19 +74,6 @@ const TicTacToe = () => {
       if (socketRef.current) socketRef.current.disconnect();
     };
   }, []);
-
-  const checkWinner = (currentBoard) => {
-    for (let condition of winConditions) {
-      const [a, b, c] = condition;
-      if (currentBoard[a] && currentBoard[a] === currentBoard[b] && currentBoard[a] === currentBoard[c]) {
-        return { winner: currentBoard[a], line: condition };
-      }
-    }
-    if (currentBoard.every(cell => cell !== null)) {
-      return { winner: 'draw', line: null };
-    }
-    return null;
-  };
 
   const handleCellClick = (index) => {
     if (board[index] || winner || currentPlayer !== myMark || playersCount < 2) return;
