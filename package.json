@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite frontend",
+    "dev": "vite",
     "server": "node backend/server.cjs",
-    "build": "vite build frontend",
+    "build": "vite build",
     "lint": "eslint frontend",
-    "preview": "vite preview frontend"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.0",
