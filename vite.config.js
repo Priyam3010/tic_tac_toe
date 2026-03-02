@@ -7,5 +7,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`
   }
 })
