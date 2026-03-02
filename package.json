@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite frontend",
+    "dev": "vite",
     "server": "node backend/server.cjs",
     "build": "vite build frontend",
     "lint": "eslint frontend",

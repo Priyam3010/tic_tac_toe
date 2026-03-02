@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap");
 
 :root {
   --bg-dark: #0a0a0c;
