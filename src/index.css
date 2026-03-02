@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap");
+
+:root {
+  --bg-dark: #0a0a0c;
+  --neon-cyan: #0ff;
+  --neon-magenta: #f0f;
+  --grid-line: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: white;
+  font-family: "Outfit", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+}
+
+@keyframes draw-x {
+  from {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes draw-o {
+  from {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-cyan {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px var(--neon-cyan))
+      drop-shadow(0 0 10px var(--neon-cyan));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px var(--neon-cyan))
+      drop-shadow(0 0 25px var(--neon-cyan));
+  }
+}
+
+@keyframes pulse-magenta {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px var(--neon-magenta))
+      drop-shadow(0 0 10px var(--neon-magenta));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px var(--neon-magenta))
+      drop-shadow(0 0 25px var(--neon-magenta));
+  }
+}
+
+@keyframes screen-shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-5px, 5px);
+  }
+  50% {
+    transform: translate(5px, -5px);
+  }
+  75% {
+    transform: translate(-5px, -5px);
+  }
+}
+
+.animate-draw-x {
+  stroke-dasharray: 100;
+  animation: draw-x 0.4s ease-out forwards;
+}
+
+.animate-draw-o {
+  stroke-dasharray: 100;
+  animation: draw-o 0.4s ease-out forwards;
+}
+
+.glow-cyan {
+  filter: drop-shadow(0 0 10px var(--neon-cyan));
+}
+
+.glow-magenta {
+  filter: drop-shadow(0 0 10px var(--neon-magenta));
+}
+
+.cell-hover:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.screen-shake {
+  animation: screen-shake 0.2s ease-in-out infinite;
+}
